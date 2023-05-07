@@ -1,24 +1,7 @@
-# crud-vue-client
+## CRUD Vue Client
 
-## Project setup
-```
-npm install
-```
+This project consumes a CRUD web [API](https://github.com/BtCellNet18/CRUD).
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## GitHub Page
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Available [here](https://btcellnet18.github.io/crud-vue-client/)
