@@ -1,26 +1,30 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Vue.js"/>
+<template>  
+  <Navbar :isAuthenticated="isAuthenticated" @loggedOut="loggedOut" />
+  <div class="m-5">  
+    <router-view @loggedIn="loggedIn"></router-view>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from './components/Navbar.vue'
+import AuthService from './services/AuthService'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: { Navbar },
+  data() {
+    return {
+      isAuthenticated: AuthService.isLoggedIn()
+    }
+  },
+  methods: {
+    loggedIn() {
+      this.isAuthenticated = true
+    },
+    loggedOut() {
+      AuthService.logout()
+      this.isAuthenticated = false
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
